@@ -756,8 +756,10 @@ class RequestDefaultHTTP(threading.Thread): # la classe del multithreading
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # creazione socket
 				s.connect((str(url2), int(urlport))) # connessione
 				s.send (str.encode(request)) # invio
-				print ("Request sent! @") # print req + counter
-				
+				print ("Request sent! @", self.counter) # print req + counter
+				try: # invia altre richieste nello stesso thread
+					for y in range(multiple): # fattore di moltiplicazione
+						s.send(str.encode(request)) # encode in bytes della richiesta HTTP
 				except: # se qualcosa va storto, chiude il socket e il ciclo ricomincia
 					s.close()
 			except: # se qualcosa va storto
